@@ -1,0 +1,73 @@
+section.contact-me {
+  background-image: url(/img/phone.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba($secondary-color, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  @include sectionStyle;
+  position: relative;
+  z-index: 1;
+
+  .section-title{
+    @include title(2rem, $primary-color, $title-border);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .form-container {
+    display: flex;
+    justify-content: center;
+  }
+  .contact-area {
+    background: white;
+    width: 70%;
+
+    .form-area {
+      padding: 2rem;
+      [data-dom="input"],
+      textarea {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 12px;
+        border: 1px solid #d7d7cb;
+        line-height: 24px;
+        letter-spacing: 0.3px;
+        outline-color: #c0392b;
+        margin-bottom: 20px;
+      }
+      .btn-wrap{
+        display: flex;
+        justify-content: center;
+        .btn{
+          @include btn;
+          display: inline-block;
+          font-weight: 500;
+          font-size: 1rem;
+          &:hover{
+            background-color: $primary-color;
+            @include easeOut;
+          }
+         
+        }
+      }
+      textarea {
+        height: 200px;
+      }
+      .inline-input {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        input {
+          width: 49%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+@import "config";
+@import "about";
+@import "contact";
+@import "projects";
+
+// CSS RESET
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  a {
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+  }
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  line-height: 1.9rem;
+  height: 100%;
+}
+
+// CSS RESET ENDS
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 1rem;
+  background: $secondary-color;
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    .nav-items {
+      display: inline-block;
+      padding-right: 2rem;
+    }
+
+    a {
+      color: $third-color;
+        &:hover{
+          color: $primary-color;
+          @include easeOut;
+        }
+    }
+  }
+}
+
+main {
+  overflow: hidden;
+
+  section.hero-page {
+    position: relative;
+    z-index: 1;
+    padding: 4rem;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    // height: 100vh;
+    background-color: $third-color;
+    @include socialIcon;
+    .btn-group {
+      margin-top: 40px;
+      .btn {
+        @include btn;
+        &:hover {
+          background-color: $primary-color;
+          @include easeOut;
+        }
+      }
+    }
+    h1,
+    h2,
+    h3 {
+      &.lg-heading {
+        font-size: 4rem;
+        .text-sec {
+          color: $primary-color;
+        }
+      }
+      &.sm-heading {
+        padding: 0.2rem 1rem;
+        background: rgba(lighten($secondary-color, 1), 0.2);
+        color: rgb(0, 0, 0);
+      }
+    }
+
+    h1.lg-heading {
+      padding-top: 20vh;
+      margin-bottom: 2rem;
+    }
+    .hero-title {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 2fr 1fr;
+      margin-top: 40px;
+      .hero {
+        margin-top: 100px;
+      }
+    }
+  }
+}
+
+footer {
+  @include socialIcon;
+  min-height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 40px;
+  justify-content: space-between;
+  background: black;
+  color: aliceblue;
+  .socail-icon {
+    margin-bottom: 50px;
+    a {
+      padding-right: 50px;
+      span {
+        &:hover {
+          color: white;
+          @include easeOut;
+        }
+      }
+    }
+  }
+  .footer-text {
+    margin-top: 30px;
+    padding: 0 30px;
+  }
+}
+
+@import "responsiveness";
+@import "menu";

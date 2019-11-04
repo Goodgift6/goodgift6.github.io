@@ -1,0 +1,66 @@
+@include md {
+  header {
+    .menu-btn {
+      position: absolute;
+      top: 35px;
+      right: 35px;
+      z-index: 5;
+      cursor: pointer;
+      @include easeOut;
+      background-color: $secondary-color;
+      padding: 8px 10px;
+      border-radius: 10%;
+
+      .btn-line {
+        width: 28px;
+        height: 3px;
+        background-color: white;
+        margin-bottom: 3px;
+        @include easeOut;
+      }
+      &.close {
+        transform: rotate(180deg);
+        .btn-line {
+          &:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 5px);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -6px);
+          }
+        }
+      }
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      opacity: 0.9;
+      visibility: hidden;
+      &.show {
+        visibility: visible;
+      }
+
+      .navbrand,
+      .nav-list {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 50%;
+        height: 100vh;
+      }
+      .nav-list {
+        background: darken($secondary-color, 5);
+        transform: translate3d(0, -100%, 0);
+        @include easeOut;
+        &.show {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
+  }
+}

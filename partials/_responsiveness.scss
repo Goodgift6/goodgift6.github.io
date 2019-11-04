@@ -1,0 +1,82 @@
+@include md {
+  body {
+    font-size: 14px;
+  }
+  header {
+    padding: 0;
+  }
+  main section.hero-page {
+    .hero-title {
+      grid-template-columns: 1fr;
+      margin-top: 0;
+      h1.lg-heading {
+        padding-top: 4vh;
+        line-height: 4rem;
+      }
+      .hero {
+        margin-left: 40px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  section.about-me {
+    grid-template-areas:
+      "title"
+      "personal-data"
+      "skills";
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    .section-title {
+      margin-bottom: 10px;
+    }
+  }
+  section.skills-level {
+    grid-template-areas:
+      "section-title"
+      "top1"
+      "top2"
+      "bot1"
+      "bot2";
+    grid-template-columns: 1fr;
+    padding-top: 30px;
+  }
+
+  section.my-projects {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .works {
+      grid-template-columns: 1fr;
+    }
+    .projects {
+      .btn {
+        @include btn;
+        position: relative;
+        padding-right: 260px;
+      }
+    }
+  }
+
+  section.contact-me {
+    padding: 30px 10px;
+    .contact-area .form-area .inline-input input {
+      width: 100%;
+    }
+  }
+  footer {
+    justify-content: center;
+  }
+}
+
+@include sm {
+  main section.hero-page {
+    .hero-title {
+      .hero {
+        margin-left: 40px;
+        margin-top: 10px;
+      }
+    }
+  }
+}

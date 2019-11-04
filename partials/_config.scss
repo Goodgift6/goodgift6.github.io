@@ -1,0 +1,106 @@
+$primary-color: #c4473a;
+$secondary-color: #474747;
+$third-color: #EBF0F3;
+$background-image: url(/img/home-banner.jpg);
+$background-opacity: 0.9;
+$title-border : 2px solid $primary-color;
+
+@mixin easeOut {
+  transition: all 1.5s ease-out;
+}
+@mixin btn {
+  background-color: $secondary-color;
+  border: 1px solid white;
+  padding: 0.8rem 2rem;
+  color: $third-color;
+}
+@mixin socialIcon {
+  .social-icon {
+    margin-top: 1.5rem;
+    a {
+      padding: 0.4rem;
+      
+      i{
+        color: $secondary-color;
+        &:hover {
+          color: $primary-color;
+          @include easeOut;
+        }
+      }
+    }
+  }
+}
+@mixin backgroundPics ($background, $z-index){
+  background-image: $background;
+  background-attachment: fixed;
+  background-size: cover;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba($third-color, $background-opacity);
+    width: 100%;
+    height: 100%;
+    z-index: $z-index;
+  }
+}
+
+@mixin title($size, $color, $border) {
+  h1,
+  h2,
+  h3 {
+    display: inline-block;
+    border: $border;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    &.lg-heading {
+      font-size: $size;
+      background: rgba(lighten($color, 2), 0.2);
+      .text-sec {
+        color: $color;
+      }
+    }
+    &.sm-heading {
+      margin-bottom: 2rem;
+      padding: 0.2rem 1rem;
+      background: rgba(lighten($color, 2), 0.2);
+    }
+  }
+}
+
+@mixin sectionStyle {
+  padding: 4rem;
+  width: 100%;
+  margin: 0 auto;
+  // padding-top: 100px;
+  min-height: 100vh;
+  height: 100%;
+}
+
+@mixin sm {
+  @media screen and (max-width: 500px){
+    @content;
+  }
+}
+
+
+@mixin md {
+  @media screen and (max-width: 768px){
+    @content;
+  }
+}
+
+
+@mixin widescreen {
+  @media screen and (min-width: 769px) and (min-width: 1170px){
+    @content;
+  }
+}
+
+
+@mixin lg {
+  @media screen and (min-width: 1171 ){
+    @content;
+  }
+}

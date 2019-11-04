@@ -1,0 +1,126 @@
+section {
+  &.about-me {
+    @include sectionStyle;
+    display: grid;
+    gap: 20px;
+    grid-template-areas:
+      "title title"
+      "personal-data skills";
+    grid-template-columns: repeat(2, 1fr);
+
+    .section-title {
+      grid-area: title;
+      text-align: center;
+      margin-bottom: 40px;
+      @include title(2rem, $primary-color, $title-border);
+    }
+
+    .personal-data {
+      grid-area: personal-data;
+      
+      >*{
+        margin-bottom: 30px;
+      }
+      
+      .bio > p {
+        margin-bottom: 20px;
+        strong {
+          width: 200px;
+          display: inline-block;
+          position: relative;
+          margin-right: 30px;
+          font-weight: 900;
+          &:after {
+            content: ":";
+            position: absolute;
+            right: 0px;
+          }
+        }
+      }
+    }
+    .skills {
+      grid-area: skills;
+      display: grid;
+      margin-left: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      .skill-box {
+        text-align: center; 
+      }
+      .skill-wrap {
+        width: 130px;
+        height: 130px;
+        margin: auto;
+        border: 1px solid red;
+        div {
+          margin: 0 15px;
+          margin-top: 25px;
+          padding: 20px;
+          border: 1px solid red; 
+
+        }
+      }
+    }
+  }
+}
+
+section.skills-level {
+  @include sectionStyle;
+  @include backgroundPics(url(/img/8.jpg), -1);
+  display: grid;
+  gap: 20px;
+  grid-template-areas:
+    "section-title section-title"
+    "top1 top2"
+    "bot1 bot2";
+  grid-template-columns: repeat(2, 1fr);
+  z-index: 1;
+  position: relative;
+  .bar h4 {
+    color: #000;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+  .section-title {
+    grid-area: section-title;
+    text-align: center;
+    @include title(2rem, $primary-color, $title-border);
+  }
+  .bar1 {
+    grid-area: top1;
+  }
+  .bar2 {
+    grid-area: top2;
+  }
+  .bar3 {
+    grid-area: bot1;
+  }
+  .bar4 {
+    grid-area: bot2;
+  }
+
+  .progress-bar {
+    background: lighten($secondary-color, 3);
+    margin-bottom: 2rem;
+    height: 100%;
+    font-weight: 400;
+    color: $primary-color;
+
+    span {
+      background-color: white;
+      padding: 0.5rem 1rem;
+    }
+
+    .p80 {
+      background-color: $primary-color;
+      width: 80%;
+    }
+    .p40 {
+      background-color: $primary-color;
+      width: 40%;
+    }
+    .p60 {
+      background-color: $primary-color;
+      width: 60%;
+    }
+  }
+}
